@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var r = /a/g;
+		var w = /c/
+		var s = "_abbba_aba";
+		while (true) {
+			var match = r.exec(s);
+			if(!match){
+				break;
+			}
+			console.log(match);
+		}
+		console.log(s.match(r));
+		console.log(s.match(w));
+		console.log(s.search(r));
+		console.log(s.search(w));
+		console.log('aaa'.replace(/a/g,"b"));
+		console.log(" s is s ".replace(/^\s*|\s*$/g,""))
+		var mm = "3 and 5".replace(/[0-9]+/g,function(match){
+			return match*2;
+		})
+		console.log(mm);
+		var partern = /abc|d/ig;
+		var str = "abc def higk ad";
+		var sp = str.replace(partern,function(match){
+			return match.toUpperCase();
+		});
+		console.log(sp);
+		console.log("aaa**a*".split(/a*/));
+		console.log(/c.t/.exec("cat"));
+		console.log(/^test/.test("test123"));
+		console.log(/test$/.test("test123"));
+		console.log(/test$/.test("123test"));
+		console.log(/11|22/.test("911"));
+		console.log(/a( |\t)b/.test("a\tb"));
+		console.log(/1+1/.test("111"));
+		console.log(new RegExp("1\\+1").test("1+1"));
+		console.log(/[^abc]/.test("abc"))
+		console.log("yes \n day".match(/yes \s day/));
+		console.log(/\w+/.exec("hello world"));
+		console.log(/\Bworld/.test("bworld"));
+		console.log(/[\s\S]*/.exec("<span>world\n hello</span>"));
+		console.log(/lo{2,3}k/.exec("look"));
+		console.log(/t+ook/.exec("ook"));
+		console.log('aaa'.match(/a*?/));
+		var reg = /b/g;
+		var res = 'abbaa';
+		console.log(reg.exec(res));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(res));
+		console.log(reg.lastIndex);
+		console.log(reg.exec(res));
+		console.log(reg.lastIndex);
+		console.log(/world$/m.exec("hello world\n"));
+		console.log(/^b/m.exec("a\nb"));
+		var m = "abcabc".match(/(.)b(.)/);
+		console.log(m);
+		console.log(/fred+/.exec("fredd"));
+		console.log(/(fred)+/.exec("fredd"));
+		var o = {p:123};
+		console.log(Object.getOwnPropertyDescriptor(o,'p'));
+		var oo = Object.defineProperty({},"p",{
+			value:123,
+			writable:false,
+		});
+		console.log(oo.p);
+		oo.p = 456;
+		var ooo = Object.defineProperties({},{
+			p1:{value:123,writable:true,configurable:true},
+			p2:{value:345,writable:true},
+			p3:{get:function(){return this.p1+this.p2},enumerable:true,configurable:true}
+		})
+		console.log(ooo);
+		Object.defineProperty(o,'p4',{
+			value:4,
+			configurable:true,
+		})
+		console.log(o.p4);
+		console.log(Object.keys(ooo));
+		var op = Object.defineProperty({},"p",{
+			configurable:false,
+			writable:true
+		})
+		Object.defineProperty(op,"p",{
+			value:false
+		})
+		var obj = Object.defineProperties({},{
+			p1:{value:123,configurable:false,enumerable:true},
+			p2:{value:234,configurable:true,enumerable:true},
+		})
+		delete obj.p2;
+		console.log(Object.keys(obj));
+		o2 = 5;
+		console.log(Object.getOwnPropertyDescriptor(this,"o2"));
+		console.log(Object.getOwnPropertyNames(obj));
+		console.log(Object.keys(Object.prototype));
+		console.log(Object.getOwnPropertyNames(Object.prototype));
+		var oset = {
+			get p(){
+				return "getter"
+			},
+			set p(value){
+				console.log("setter: "+value);
+			}
+		}
+		console.log(oset)
+		oset.p = 123;
+		var onext = {
+			n : 5,
+			get next(){
+				return this.n++;
+			},
+			set next(value){
+				if(value>this.n){
+					this.n = value;
+				}else{
+					throw("新的值必须大于当前值")
+				}
+			}
+		}
+		console.log(onext.next)
+		var strs = "yes\nday";
+		console.log(strs);
+		console.log(/yes[^]day/g.test(strs));
+		console.log("abcabc".match(/(.)b(.)/));
+		function greet(user){
+			console.count();
+			return "hi"+user;
+		}
+		console.log(greet("ggg"));
+		console.dir(document.body);
+		console.dir(1,23);
+		console.time("www.www");
+		for(var i=0;i<800055;i++){
+			var n = n + i;
+		}
+		console.timeEnd("www.www");
+		var o = {p:"a"};
+		an = 5;
+		console.log(Object.getOwnPropertyDescriptor(o,"p"));
+		console.log(Object.getOwnPropertyDescriptor(window,"an"));
+		var ao = Object.defineProperty({},"p",{
+			value:888,
+			configurable:false,
+			writable: false
+		})
+		
+		ao.p = 4443;
+		console.log(ao.p);
+		var oo = Object.defineProperty({},"p",{
+			value:2,
+			writable:false,
+			configurable:false,
+			enumerable:false
+		})
+		oo.p = 123;
+		console.log(oo.p);
+		// Object.defineProperty(oo,"p",{
+		// 	configurable:true
+		// })
+		console.log(Object.getOwnPropertyDescriptor(an,"p"));
+		var o = Object.defineProperty({},"p",{
+			value:5555555
+		});
+		console.log(o.p)
+	</script>
+</body>
+</html>
